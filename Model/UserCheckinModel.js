@@ -1,9 +1,13 @@
 const {getDb} = require('../connectDb');
 const {getDateNow, getTime} = require('../GetDayTime');
 
+function getHistoriesCollection() {
+    return getDb().collection('histories')
+}
+
 module.exports = {
     UserCheckin: (user) => {
-        return getDb().collection('histories').insertOne({
+        return getHistoriesCollection().insertOne({
             userId: user._id,
             name: user.name,
             dayCheckin: getDateNow(),
@@ -11,7 +15,7 @@ module.exports = {
         });
     },
     ReportListUserLate: () => {
-        return getDb().collection('histories').aggregate([
+        return getHistoriesCollection().aggregate([
             {
                 '$match': {
                     '$or': [

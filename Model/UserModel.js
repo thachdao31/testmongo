@@ -1,20 +1,24 @@
 const {ObjectId} = require('mongodb');
 const {getDb} = require('../connectDb');
 
+function getUsersCollection() {
+    return getDb().collection('users');
+}
+
 module.exports = {
     getUsers: () => {
-        return getDb().collection('users').find({}).toArray();
+        return getUsersCollection().find({}).toArray();
     },
     getUserById: (id) => {
-        return getDb().collection('users').findOne({_id: ObjectId(id)});
+        return getUsersCollection().findOne({_id: ObjectId(id)});
     },
     createUser: (user) => {
-        return getDb().collection('users').insertOne(user);
+        return getUsersCollection().insertOne(user);
     },
     updateUser: (id, user) => {
-        return getDb().collection('users').updateOne({_id: ObjectId(id)}, {$set: user});
+        return getUsersCollection().updateOne({_id: ObjectId(id)}, {$set: user});
     },
     deleteUser: (id) => {
-        return getDb().collection('users').deleteOne({_id: ObjectId(id)});
+        return getUsersCollection().deleteOne({_id: ObjectId(id)});
     }
 }

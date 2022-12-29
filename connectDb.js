@@ -9,6 +9,7 @@ const connectToDb = (callback) => {
         if (err) {
             callback(err);
         } else {
+            callback(null);
             db = client.db('mydb');
         }
     });

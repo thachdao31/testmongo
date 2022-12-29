@@ -4,6 +4,7 @@ const {connectToDb} = require('./connectDb');
 const UserRoute = require('./Route/UserRoute');
 const UserCheckinRoute = require('./Route/UserCheckinRoute');
 
+
 connectToDb((err) => {
     if (err) {
         console.log(err);
