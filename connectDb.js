@@ -10,7 +10,6 @@ const connectToDb = (callback) => {
             callback(err);
         } else {
             db = client.db('mydb');
-            callback(null);
         }
     });
 }

@@ -1,8 +1,8 @@
-const MongoClient = require('mongodb');
 const express = require('express');
 const app = express();
 const {connectToDb} = require('./connectDb');
 const UserRoute = require('./Route/UserRoute');
+const UserCheckinRoute = require('./Route/UserCheckinRoute');
 
 connectToDb((err) => {
     if (err) {
@@ -15,5 +15,6 @@ connectToDb((err) => {
 app.use(express.json());
 
 app.use('/', UserRoute);
+app.use('/', UserCheckinRoute);
 
 app.listen(3030);
