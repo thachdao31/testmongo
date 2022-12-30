@@ -5,10 +5,10 @@ const UserRoute = require('./Route/UserRoute');
 const UserCheckinRoute = require('./Route/UserCheckinRoute');
 
 app.use(express.json());
+connectToDb();
 
 app.use('/', UserRoute);
 app.use('/', UserCheckinRoute);
 
-connectToDb();
 
 app.listen(3030);
