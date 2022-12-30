@@ -2,7 +2,7 @@ const UserModel = require('../Model/UserModel');
 
 function returnError(res ,error) {
     return res.json({
-        message : err
+        message : error
     })
 }
 
