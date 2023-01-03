@@ -10,5 +10,5 @@ connectToDb();
 app.use('/', UserRoute);
 app.use('/', UserCheckinRoute);
 
-
 app.listen(3030);
+

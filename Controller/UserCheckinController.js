@@ -1,4 +1,3 @@
-const {getDateNow, getTime} = require('../GetDayTime');
 const UserModel = require('../Model/UserModel');
 const UserCheckinModel = require('../Model/UserCheckinModel');
 
