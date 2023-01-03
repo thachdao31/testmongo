@@ -9,7 +9,7 @@ function returnError(res ,error) {
 module.exports = {
     getUsers: async (req, res) => {
         try {
-            const listUsers = await UserModel.getUsers();
+            const listUsers = await UserModel.find();
             res.json(listUsers);
         } catch (error) {
             returnError(res, error);
@@ -18,7 +18,7 @@ module.exports = {
     getUserById: async (req, res) => {
         try {
             const id = req.params.id;
-            const user = await UserModel.getUserById(id);
+            const user = await UserModel.findById(id);
             res.json(user);
         } catch (error) {
             returnError(res, error);
@@ -27,7 +27,7 @@ module.exports = {
     createUser: async (req, res) => {
         try {
             const user = req.body;
-            const result = await UserModel.createUser(user);
+            const result = await UserModel.insertOne(user);
             res.json({
                 message: 'User created',
                 newUserIdCreated: result.insertedId
@@ -40,7 +40,7 @@ module.exports = {
         try {
             const id = req.params.id;
             const user = req.body;
-            await UserModel.updateUser(id, user);
+            await UserModel.updateById(id, user);
             res.json({
                 message: 'User updated',
                 updatedUser: user
@@ -52,7 +52,7 @@ module.exports = {
     deleteUser: async (req, res) => {
         try {
             const id = req.params.id;
-            const result = await UserModel.deleteUser(id);
+            const result = await UserModel.deleteById(id);
             res.json({
                 message: 'User deleted',
                 deletedUser: id
