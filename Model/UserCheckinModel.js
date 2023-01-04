@@ -1,14 +1,6 @@
 const {getDb} = require('../connectDb');
 const {BaseModel} = require('./base');
 
-// class UserCheckinModel extends BaseModel {
-//     constructor() {
-//         super('histories');
-//     }
-// }
-
-// module.exports = new UserCheckinModel();
-
 function getHistoriesCollection() {
     return getDb().collection('histories')
 }
