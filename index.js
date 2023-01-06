@@ -7,8 +7,8 @@ const UserCheckinRoute = require('./Route/UserCheckinRoute');
 app.use(express.json());
 connectToDb();
 
-app.use('/', UserRoute);
-app.use('/', UserCheckinRoute);
+app.use('/api/users', UserRoute);
+app.use('/api/user', UserCheckinRoute);
 
 app.listen(3030);
 

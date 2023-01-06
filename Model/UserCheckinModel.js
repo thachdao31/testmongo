@@ -14,6 +14,6 @@ module.exports = {
         });
     },
     ReportListUserLate: () => {
-      return getHistoriesCollection().find({ timeCheckin: { $gte: new Date('2023-01-03T07:47:55.317+00:00')}}).toArray();
+      return getHistoriesCollection().find({}).toArray();
     }
 }
