@@ -3,14 +3,14 @@ const UserController = require('../Controller/UserController');
 
 
 
-Router.get('/users', UserController.getUsers);
+Router.get('/', UserController.getUsers);
 
-Router.get('/users/:id', UserController.getUserById);
+Router.get('/:id', UserController.getUserById);
 
-Router.post('/users', UserController.createUser);
+Router.post('/', UserController.createUser);
 
-Router.put('/users/:id', UserController.updateUser);
+Router.put('/:id', UserController.updateUser);
 
-Router.delete('/users/:id', UserController.deleteUser);
+Router.delete('/:id', UserController.deleteUser);
 
 module.exports = Router;
