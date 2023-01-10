@@ -25,6 +25,9 @@ class BaseModel {
     async deleteById(id) {
         return await this.getCollection().deleteOne({_id: ObjectId(id)});
     }
+    async deleteAll() {
+        return await this.getCollection().remove({});
+    }
 }
 
 module.exports = BaseModel;

@@ -46,19 +46,29 @@ module.exports = {
                 updatedUser: user
             });
         } catch (error) {
-            return returnError(res, error);
+            returnError(res, error);
         }
     },
     deleteUser: async (req, res) => {
         try {
             const id = req.params.id;
-            const result = await UserModel.deleteById(id);
+            await UserModel.deleteById(id);
             res.json({
                 message: 'User deleted',
                 deletedUser: id
             });
         } catch (error) {
             returnError(res, error);
+        }
+    },
+    deleteAll: async (req, res) => {
+        try {
+            await UserModel.deleteAll();
+            res.json({
+                message: 'delete all user'
+            })
+        } catch (error) {
+            returnError(error)
         }
     }
 }

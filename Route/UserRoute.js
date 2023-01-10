@@ -13,4 +13,6 @@ Router.put('/:id', UserController.updateUser);
 
 Router.delete('/:id', UserController.deleteUser);
 
+Router.delete('/' ,UserController.deleteAll);
+
 module.exports = Router;
