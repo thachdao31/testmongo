@@ -11,7 +11,7 @@ app.use(cors())
 connectToDb();
 
 app.use('/api/users', UserRoute);
-app.use('/api/user', UserCheckinRoute);
+app.use('/api', UserCheckinRoute);
 
 app.listen(3030);
 
