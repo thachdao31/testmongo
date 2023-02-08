@@ -3,7 +3,7 @@ const UserCheckinModel = require('../Model/UserCheckinModel');
 
 module.exports = {
     userCheckin: async (req, res) => {
-        const id = req.params.id;
+        const id = req.body.id;
         try {
             const user = await UserModel.findById(id);
             if (user) {
@@ -23,14 +23,13 @@ module.exports = {
         }
     },
     reportListUserLate: async (req, res) => {
-        let listUserLate = await UserCheckinModel.ReportListUserLate();
+        let listUserCheckin = await UserCheckinModel.ReportListUserLate();
         let time = [];
-        listUserLate.forEach( user => {
-            if(user.timeCheckin.getUTCHours() > 8 || (user.timeCheckin.getUTCHours() == 8 && user.timeCheckin.getUTCMinutes() > 0)) {
+        listUserCheckin.forEach( user => {
+            if(user.timeCheckin.getUTCHours() > 8 || (user.timeCheckin.getUTCHours() == 0 && user.timeCheckin.getUTCMinutes() > 0)) {
                 time.push(user);
             }
         });
-         console.log(time)
-        res.json(listUserLate);
+        res.json(time);
     }
 }

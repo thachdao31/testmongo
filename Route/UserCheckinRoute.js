@@ -1,8 +1,8 @@
-const Route = require('express').Router();
+const Router = require('express').Router();
 const UserCheckinController = require('../Controller/UserCheckinController');
 
-Route.post('/user/checkin/:id', UserCheckinController.userCheckin);
+Router.post('/', UserCheckinController.userCheckin);
 
-Route.get('/user/report', UserCheckinController.reportListUserLate);
+Router.get('/', UserCheckinController.reportListUserLate);
 
-module.exports = Route;
+module.exports = Router;
