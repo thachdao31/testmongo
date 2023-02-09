@@ -1,3 +1,4 @@
+const { Timestamp } = require('mongodb');
 const {getDb} = require('../connectDb');
 const {BaseModel} = require('./base');
 
@@ -10,7 +11,7 @@ module.exports = {
         return historiesCollection().insertOne({
             userId: user._id,
             name: user.name,
-            timeCheckin: new Date()
+            timeCheckin: new Timestamp()
         });
     },
     ReportListUserLate: () => {
