@@ -24,12 +24,6 @@ module.exports = {
     },
     reportListUserLate: async (req, res) => {
         let listUserCheckin = await UserCheckinModel.ReportListUserLate();
-        let time = [];
-        listUserCheckin.forEach( user => {
-            if(user.timeCheckin.getUTCHours() > 8 || (user.timeCheckin.getUTCHours() == 0 && user.timeCheckin.getUTCMinutes() > 0)) {
-                time.push(user);
-            }
-        });
-        res.json(time);
+        res.json(listUserCheckin);
     }
 }

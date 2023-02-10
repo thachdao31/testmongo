@@ -11,10 +11,15 @@ module.exports = {
         return historiesCollection().insertOne({
             userId: user._id,
             name: user.name,
-            timeCheckin: new Timestamp()
+            timeCheckin: new Date()
         });
     },
     ReportListUserLate: () => {
-      return historiesCollection().find({}).toArray();
+        return historiesCollection().find({
+            timeCheckin: {
+                $gte: new Date(new Date("2023-02-09")),
+                $lte: new Date(new Date("2023-02-11")),
+            }
+        }).toArray();
     }
 }
