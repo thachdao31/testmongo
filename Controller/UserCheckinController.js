@@ -23,7 +23,11 @@ module.exports = {
         }
     },
     reportListUserLate: async (req, res) => {
-        let listUserCheckin = await UserCheckinModel.ReportListUserLate();
-        res.json(listUserCheckin);
+        let listUserCheckin = await UserCheckinModel.ReportListUserLate(req.params.date);
+        
+        
+
+
+        res.json(test);
     }
 }

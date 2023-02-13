@@ -14,11 +14,11 @@ module.exports = {
             timeCheckin: new Date()
         });
     },
-    ReportListUserLate: () => {
+    ReportListUserLate: (date) => {
         return historiesCollection().find({
             timeCheckin: {
-                $gte: new Date(new Date("2023-02-09")),
-                $lte: new Date(new Date("2023-02-11")),
+                $gte: new Date(new Date(date).setMonth(new Date(date).getMonth() - 1)),
+                $lte: new Date(new Date(date)),
             }
         }).toArray();
     }
