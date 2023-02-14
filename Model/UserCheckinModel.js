@@ -1,17 +1,18 @@
 const { Timestamp } = require('mongodb');
 const {getDb} = require('../connectDb');
 const {BaseModel} = require('./base');
+const {ObjectId} = require('mongodb');
 
 function historiesCollection() {
     return getDb().collection('histories')
 }
 
 module.exports = {
-    UserCheckin: (user) => {
+    UserCheckin: (user, date) => {
         return historiesCollection().insertOne({
             userId: user._id,
             name: user.name,
-            timeCheckin: new Date()
+            timeCheckin: date
         });
     },
     ReportListUserLate: (date) => {
