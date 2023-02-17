@@ -35,24 +35,8 @@ module.exports = {
             }
         });
 
-        const groupBy = keys => array =>
-  array.reduce((objectsByKeyValue, obj) => {
-    const value = keys.map(key => obj[key]).join('-');
-    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj);
-    return objectsByKeyValue;
-  }, {});
+    
 
-        let test1 = groupBy(['name']);
-        let test2 = groupBy(['userId']);
-        let test3 = groupBy(['name', 'userId'])
-
-        let test4 = test3(listUserLate)
-
-
-        console.log(test4)
-
-        //console.log(resultCheck);
-
-        res.json(test4);
+        res.json(resultCheck);
     }
 }
