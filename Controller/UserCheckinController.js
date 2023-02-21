@@ -30,7 +30,7 @@ module.exports = {
         let resultCheck = [];
 
         listUserLate.forEach(user => {
-            if(user.timeCheckin.getHours() < 10 || (user.timeCheckin.getHours() == 10 && user.timeCheckin.getMinutes() == 0)) {
+            if(user.timeCheckin.getHours() < 12 || (user.timeCheckin.getHours() == 12 && user.timeCheckin.getMinutes() == 0)) {
                 resultCheck.push(user)
             }
         });
