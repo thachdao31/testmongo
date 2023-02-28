@@ -68,7 +68,15 @@ module.exports = {
                 message: 'delete all user'
             })
         } catch (error) {
-            returnError(error)
+            returnError(res, error)
+        }
+    },
+    getAllClassField: async (req, res) => {
+        try {
+            const classField = await UserModel.getAllClassField();
+            res.json(classField)
+        } catch (error) {
+            res.json(error)
         }
     }
 }

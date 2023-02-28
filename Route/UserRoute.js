@@ -15,4 +15,6 @@ Router.delete('/:id', UserController.deleteUser);
 
 Router.delete('/' ,UserController.deleteAll);
 
+Router.get('/test/test1', UserController.getAllClassField);
+
 module.exports = Router;
